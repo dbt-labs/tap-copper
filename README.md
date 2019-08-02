@@ -1,6 +1,6 @@
 # tap-copper
 
-Author: Drew Banin (drew@fishtownanalytics.com)
+Author: Jacob Werderits (jacob@fishtownanalytics.com)
 
 This is a [Singer](http://singer.io) tap that produces JSON-formatted data following the [Singer spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
 
