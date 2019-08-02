@@ -13,3 +13,8 @@ class OpportunitiesStream(BaseStream):
     @property
     def path(self):
         return '/opportunities/search'
+
+    def custom_body(self):
+        return { 
+            "minimum_modified_date": self.get_start_date()
+        }                

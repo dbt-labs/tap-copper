@@ -14,7 +14,7 @@ def get_last_record_value_for_table(state, table):
     if last_value is None:
         return None
 
-    return parse(last_value)
+    return last_value
 
 
 def incorporate(state, table, field, value):
@@ -23,8 +23,6 @@ def incorporate(state, table, field, value):
 
     new_state = state.copy()
 
-    parsed = parse(value).strftime("%Y-%m-%dT%H:%M:%SZ")
-
     if 'bookmarks' not in new_state:
         new_state['bookmarks'] = {}
 
@@ -32,7 +30,7 @@ def incorporate(state, table, field, value):
        new_state['bookmarks'].get(table, {}).get('last_record') < value):
         new_state['bookmarks'][table] = {
             'field': field,
-            'last_record': parsed,
+            'last_record': value,
         }
 
     return new_state

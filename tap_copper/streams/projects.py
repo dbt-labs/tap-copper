@@ -13,3 +13,8 @@ class ProjectsStream(BaseStream):
     @property
     def path(self):
         return '/projects/search'
+        
+    def custom_body(self):
+        return { 
+            "minimum_modified_date": self.get_start_date()
+        }        

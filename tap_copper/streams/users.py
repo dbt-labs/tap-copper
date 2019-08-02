@@ -13,3 +13,11 @@ class UsersStream(BaseStream):
     @property
     def path(self):
         return '/users/search'
+        
+    def get_body(self, page_number=1, page_size=200):
+        body = {
+            'page_number': page_number,
+            'page_size': page_size
+        }
+        
+        return body        

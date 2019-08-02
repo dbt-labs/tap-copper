@@ -25,10 +25,16 @@ class BaseStream(base):
     def get_body(self, page_number=1, page_size=200):
         body = {
             'page_number': page_number,
-            'page_size': page_size
+            'page_size': page_size,
+            'sort_by': "date_modified",
+            'sort_direction': "asc"
         }
-
+        body.update(self.custom_body())
+        
         return body
+        
+    def custom_body(self):
+        return {}
     
     def get_params(self):
         return {}
@@ -56,6 +62,22 @@ class BaseStream(base):
                 break
             else:
                 body['page_number'] += 1
+                self.save_state(transformed[-1])
+                
+        return self.state
+                
+    def get_start_date(self):
+        bookmark = get_last_record_value_for_table(self.state, self.TABLE)
+        if bookmark:
+            return bookmark
+        else:
+            return get_config_start_date(self.config)                
+
+    def save_state(self, last_record):
+        if 'date_modified' in last_record:
+            date_modified = last_record['date_modified']
+            self.state = incorporate(self.state, self.TABLE, "date_modified", date_modified)
+            save_state(self.state)
 
     def get_stream_data(self, response):
 
