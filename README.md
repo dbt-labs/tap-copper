@@ -1,3 +1,15 @@
+# ***Archival Notice***
+This repository has been archived.
+
+As a result all of its historical issues and PRs have been closed.
+
+Please *do not clone* this repo without understanding the risk in doing so:
+- It may have unaddressed security vulnerabilities
+- It may have unaddressed bugs
+
+<details>
+   <summary>Click for historical readme</summary>
+
 # tap-copper
 
 Author: Jacob Werderits (jacob@fishtownanalytics.com)
@@ -30,7 +42,7 @@ pip install -e .
 
 2. Get an API key
 
-Create a Copper [Authentication Token](https://developer.copper.com/?version=latest#authentication). Tokens are tied to a user's email (the user's permissions determine the data avaialable). After receiving an API token keep it somewhere safe, as you'll need it to authenticate requests. See "Create the config file" below for more information on using this API Token,
+Create a Copper [Authentication Token](https://developer.copper.com/?version=latest#authentication). Tokens are tied to a user's email (the user's permissions determine the data avaialable). After receiving an API token keep it somewhere safe, as you'll need it to authenticate requests. See &quot;Create the config file&quot; below for more information on using this API Token,
 
 3. Create the config file.
 
@@ -52,4 +64,5 @@ Step 4 generates a a file called `catalog.json` that specifies all the available
 tap-copper -c config.json --catalog catalog.json
 ```
 
-Copyright &copy; 2019 Fishtown Analytics
+Copyright &amp;copy; 2019 Fishtown Analytics
+
